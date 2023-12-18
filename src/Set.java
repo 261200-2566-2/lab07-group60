@@ -42,6 +42,10 @@ public class Set<T>{
         public boolean isEmpty(){
                 return map.isEmpty();
         }
+        //Create an iterator to loop through data.
+        public Iterator<T> iterator() {
+                return map.keySet().iterator();
+        }
 
         //Add all the members of this set to the set of interest.
         public boolean addAll(Set<? extends T> s) {
@@ -58,7 +62,7 @@ public class Set<T>{
 
         //Remove all members from the set of interest.
         public boolean removeAll(Set<? extends T> s) {
-                Iterator<T> iterator = map.keySet().iterator();
+                Iterator<T> iterator = iterator();
                 while (iterator.hasNext()) {
                         //Continue until there are no values left.
                         T element = iterator.next();
@@ -95,7 +99,7 @@ public class Set<T>{
 
         //Keep only the members that are common to both sets and the set of interest.
         public boolean retainAll(Set<? extends T> s) {
-                Iterator<T> iterator = map.keySet().iterator();
+                Iterator<T> iterator = iterator();
                 //Create an iterator to store data.
                 while (iterator.hasNext()) {
                         //Continue until there are no values left.
